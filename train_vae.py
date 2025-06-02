@@ -11,11 +11,10 @@ from vae_model import VAE  # Our VAE model
 from utils import VoxelDatasetVAE # Our new dataset and utility
 
 # ========== Configuration ==========
-# Explicitly select GPU 1 which is free
-torch.cuda.set_device(1)
-DEVICE = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
+torch.cuda.set_device(0)
+DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 DATA_PATH = 'schematics_with_labels.npz' # Smaller dataset with 6K samples
-NUM_EPOCHS = 50 # Increased since we have fewer samples
+NUM_EPOCHS = 10 # Increased since we have fewer samples
 BATCH_SIZE = 8 # Can use larger batch with smaller dataset
 LEARNING_RATE = 1e-4
 LATENT_CHANNELS = 32 # Must match the VAE definition
